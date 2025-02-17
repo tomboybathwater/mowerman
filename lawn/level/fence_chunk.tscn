@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh16rarv15dc7"]
+
+[ext_resource type="Texture2D" uid="uid://b16gjkxipf0fd" path="res://assets/fence/fence.png" id="1_hge5k"]
+[ext_resource type="Script" path="res://lawn/level/fence_chunk.gd" id="1_jt0yh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eukfa"]
+size = Vector2(122, 652)
+
+[node name="FenceChunk" type="Area2D"]
+y_sort_enabled = true
+position = Vector2(-1765, 199)
+collision_layer = 8
+script = ExtResource("1_jt0yh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 0)
+shape = SubResource("RectangleShape2D_eukfa")
+
+[node name="Fence_Sprite_1" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 24)
+texture = ExtResource("1_hge5k")
+region_enabled = true
+region_rect = Rect2(0, 24, 137, 698)
+
+[node name="Fence_Sprite_2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+rotation = -3.14159
+texture = ExtResource("1_hge5k")
+region_enabled = true
+region_rect = Rect2(393, 0, 137, 698)

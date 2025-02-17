@@ -68,7 +68,10 @@ move_down={
 
 2d_physics/layer_1="mower_body"
 2d_physics/layer_2="mower_blade"
-2d_physics/layer_3="rock"
+2d_physics/layer_3="obstacle"
+2d_physics/layer_4="fence"
+2d_physics/layer_8="Level_Spawner_Looker"
+2d_physics/layer_9="Level_Spawn_Trigger"
 2d_physics/layer_10="Level_Eater"
 2d_physics/layer_11="Level_Food"
 
