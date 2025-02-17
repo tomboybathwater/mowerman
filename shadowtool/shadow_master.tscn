@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l53hncymhg61"]
+
+[ext_resource type="Script" path="res://shadowtool/shadow_master.gd" id="1_1ro2q"]
+
+[node name="ShadowMaster" type="Node2D" groups=["shadow"]]
+script = ExtResource("1_1ro2q")

@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxcfyw0w15sxq"]
+
+[ext_resource type="Texture2D" uid="uid://cegm61304epmu" path="res://assets/mower/mower_body.png" id="1_h6usg"]
+[ext_resource type="Script" path="res://mower/lawn_mower.gd" id="1_jjloc"]
+[ext_resource type="Texture2D" uid="uid://dnhcg7dyshga8" path="res://assets/mower/steering_wheel.png" id="2_lx5gk"]
+[ext_resource type="Texture2D" uid="uid://b44k8isu3rtog" path="res://assets/mower/tire.png" id="3_rb65h"]
+[ext_resource type="Texture2D" uid="uid://mmwm4hindon3" path="res://assets/mower/tire2.png" id="4_fiw5v"]
+[ext_resource type="AudioStream" uid="uid://be7c8edgkx1xo" path="res://assets/mower/mowersound1.mp3" id="6_3y871"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbx0h"]
+size = Vector2(60.9999, 85)
+
+[node name="LawnMower" type="Area2D" groups=["mower"]]
+rotation = -1.57079
+collision_mask = 4
+script = ExtResource("1_jjloc")
+
+[node name="marker_body" type="Marker2D" parent="."]
+rotation = 1.57079
+
+[node name="sprite_body" type="Sprite2D" parent="marker_body"]
+position = Vector2(9, 0)
+texture = ExtResource("1_h6usg")
+
+[node name="sprite_steer" type="Sprite2D" parent="marker_body"]
+z_index = 1
+position = Vector2(0, -7)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_lx5gk")
+
+[node name="sprite_bl_tire" type="Sprite2D" parent="marker_body"]
+z_index = -1
+position = Vector2(-47, 54)
+scale = Vector2(-1, 1)
+texture = ExtResource("4_fiw5v")
+
+[node name="sprite_br_tire" type="Sprite2D" parent="marker_body"]
+z_index = -1
+position = Vector2(47, 54)
+texture = ExtResource("3_rb65h")
+
+[node name="marker_fl" type="Marker2D" parent="marker_body"]
+position = Vector2(-14, -68)
+
+[node name="sprite_fl_tire" type="Sprite2D" parent="marker_body/marker_fl"]
+z_index = -1
+position = Vector2(-12, 1)
+scale = Vector2(-0.75, 0.5)
+texture = ExtResource("3_rb65h")
+
+[node name="marker_fr" type="Marker2D" parent="marker_body"]
+position = Vector2(17, -68)
+
+[node name="sprite_fr_tire" type="Sprite2D" parent="marker_body/marker_fr"]
+z_index = -1
+position = Vector2(12, 1)
+scale = Vector2(0.75, 0.5)
+texture = ExtResource("4_fiw5v")
+
+[node name="MowerCollider" type="CollisionShape2D" parent="."]
+position = Vector2(3.50001, 1.49998)
+shape = SubResource("RectangleShape2D_qbx0h")
+
+[node name="TireSpinTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3y871")
+volume_db = -5.0
+pitch_scale = 0.75
+autoplay = true
+mix_target = 1
+parameters/looping = true
+
+[node name="CameraHook" type="Marker2D" parent="."]
+position = Vector2(194, -0.00121723)
+
+[node name="BladeHook" type="Marker2D" parent="."]
+
+[connection signal="timeout" from="TireSpinTimer" to="." method="_on_tire_spin_timer_timeout"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwqy6oeo8j14w"]
+
+[ext_resource type="Script" path="res://mower/mower_cam.gd" id="1_t8sux"]
+
+[node name="MowerCam" type="Camera2D"]
+script = ExtResource("1_t8sux")

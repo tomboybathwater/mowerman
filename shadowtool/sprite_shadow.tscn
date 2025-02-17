@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cta18cs86bi"]
+
+[ext_resource type="Script" path="res://shadowtool/sprite_shadow.gd" id="1_20jbx"]
+
+[node name="sprite_shadow" type="Sprite2D"]
+script = ExtResource("1_20jbx")
