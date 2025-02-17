@@ -18,7 +18,9 @@ func _on_area_entered(area_that_entered: Area2D):
 
 func _destroy_obstacle(area_that_entered):
 	
-	var rubble_emmitter_array: Array = [get_node("GPUParticle_Right"), get_node("GPUParticle_Left")]
+	var rubble_emmitter_array: Array = get_children().filter(func(child):
+		return child is GPUParticles2D
+	)
 	for rubble_emitter in rubble_emmitter_array:
 		if (area_that_entered.get_node("BladeHook")):
 			rubble_emitter.global_position = area_that_entered.get_node("BladeHook").global_position
