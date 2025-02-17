@@ -28,6 +28,7 @@ func _destroy_obstacle(area_that_entered):
 	
 	#play SFX
 	var sfx_node: AudioStreamPlayer2D = get_node("HitSoundPlayer")
+	sfx_node.stream = hit_sound
 	sfx_node.play()
 	
 	#animate the body going away

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bobnjcucsjp34"]
 
-[ext_resource type="Script" path="res://lawn/obstacle.gd" id="1_m4xap"]
+[ext_resource type="Script" path="res://lawn/obstacles/obstacle.gd" id="1_m4xap"]
 [ext_resource type="Texture2D" uid="uid://e6ip8nag31wt" path="res://assets/obstacles/rock_no_outline.png" id="2_tnl8d"]
-[ext_resource type="AudioStream" uid="uid://cjdmq1qjfy8cr" path="res://assets/mower/hitrock2.mp3" id="3_tl3jd"]
-[ext_resource type="Material" uid="uid://nqh8hixj8xqu" path="res://lawn/rock_particle_process.tres" id="4_6n1a0"]
+[ext_resource type="AudioStream" uid="uid://cjdmq1qjfy8cr" path="res://assets/obstacles/hitrock2.mp3" id="3_tl3jd"]
+[ext_resource type="Material" uid="uid://nqh8hixj8xqu" path="res://lawn/obstacles/rock_particle_process.tres" id="4_6n1a0"]
 [ext_resource type="Texture2D" uid="uid://ds04tar6uw4l5" path="res://assets/obstacles/pebble_shadow.png" id="5_mnyxk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvof6"]
@@ -18,11 +18,12 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 2
 particles_anim_loop = false
 
-[node name="LawnRock" type="Area2D"]
+[node name="LawnRock" type="Area2D" groups=["obstacle"]]
 collision_layer = 4
 script = ExtResource("1_m4xap")
 score_change = -10
 speed_change = -1
+hit_sound = ExtResource("3_tl3jd")
 
 [node name="MainSprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.756863, 0.756863, 0.756863, 1)

@@ -1,10 +1,21 @@
 extends Area2D
 
+@onready var rich_text_label: RichTextLabel = $CanvasGroup/RichTextLabel
+
 #movement
-var mower_speed := 400.0
-var speed_stage_amount := 50
+const MOWER_MAX_SPEED := 1000
+const MOWER_MIN_SPEED := 50
+var mower_speed := 200.0
+var current_mower_speed : float
+var speed_stage_amount := 20
 var velocity := Vector2(0,0)
+
+var hit_stop_state := false
+var hit_stop_speed := 10
+
+var mower_steering_strength := 0.5
 var mower_steering_factor := 0.5
+
 var forward_factor := -0.5
 var full_forward := -1.0
 var brake_forward := -0.4
@@ -53,13 +64,18 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	var direction := Vector2(0,0)
-	direction.x = clampf(Input.get_axis("move_left", "move_right"), -0.5, 0.5)
+	direction.x = clampf(Input.get_axis("move_left", "move_right"), -mower_steering_strength, mower_steering_strength)
 	direction.y = forward_factor
 	
 	if (direction.length() > 1.0):
 		direction = direction.normalized()
+	
+	if (hit_stop_state):
+		current_mower_speed = hit_stop_speed
+	else:
+		current_mower_speed = mower_speed
 		
-	var desired_velocity := mower_speed * direction
+	var desired_velocity := current_mower_speed * direction
 	var steering := desired_velocity - velocity
 	velocity += steering * mower_steering_factor * delta
 	position += velocity * delta
@@ -68,6 +84,8 @@ func _process(delta: float) -> void:
 		rotation = velocity.angle()
 	
 	_handle_tire_wells(direction)
+	
+	rich_text_label.text = "Speed: " + str(current_mower_speed)
 	
 func _handle_tire_wells(direction: Vector2):
 	var target_rotation = 0.0
@@ -94,6 +112,10 @@ func _on_tire_spin_timer_timeout() -> void:
 func on_collision_with_obstacle(score_change: int, speed_change: int):
 	
 	if (speed_change != 0):
-		mower_speed += speed_stage_amount * speed_change
+		#mower_speed += speed_stage_amount * speed_change
 		if (speed_change < 0 ):
 			shake_mower.emit()
+			# hit rock speed
+			hit_stop_state = true
+			await get_tree().create_timer(0.5).timeout
+			hit_stop_state = false

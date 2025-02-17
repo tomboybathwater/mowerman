@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cxcfyw0w15sxq" path="res://mower/lawn_mower.tscn" id="2_4cijp"]
 [ext_resource type="Texture2D" uid="uid://sy70kuuqlbnl" path="res://assets/grass/grass03.png" id="2_jnpc6"]
 [ext_resource type="PackedScene" uid="uid://bwqy6oeo8j14w" path="res://mower/mower_cam.tscn" id="4_ytrsh"]
-[ext_resource type="PackedScene" uid="uid://bobnjcucsjp34" path="res://lawn/lawn_rock.tscn" id="6_bh5nd"]
+[ext_resource type="PackedScene" uid="uid://bobnjcucsjp34" path="res://lawn/obstacles/lawn_rock.tscn" id="6_bh5nd"]
 [ext_resource type="Texture2D" uid="uid://bosnnh4lh8tc8" path="res://assets/ui/speedometer.png" id="7_gaiau"]
 [ext_resource type="Script" path="res://camera/camera_shaker.gd" id="8_op1vj"]
 
@@ -56,16 +56,16 @@ position = Vector2(0, 816)
 [node name="LevelParts" type="Node2D" parent="."]
 
 [node name="LawnRock" parent="LevelParts" instance=ExtResource("6_bh5nd")]
-position = Vector2(-40, 511)
+position = Vector2(-329, 543)
 
 [node name="LawnRock2" parent="LevelParts" instance=ExtResource("6_bh5nd")]
-position = Vector2(83, 386)
+position = Vector2(2, 295)
 
 [node name="LawnRock3" parent="LevelParts" instance=ExtResource("6_bh5nd")]
-position = Vector2(-128, 232)
+position = Vector2(-304, 32)
 
 [node name="LawnRock4" parent="LevelParts" instance=ExtResource("6_bh5nd")]
-position = Vector2(79, 107)
+position = Vector2(245, 47)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
