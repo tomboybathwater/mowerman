@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=4 uid="uid://c01xmx5l6oa2x"]
+
+[ext_resource type="TileSet" uid="uid://bwqie3rrh6tx1" path="res://lawn/level/grass_grid_tileset.tres" id="1_jgdw2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nol2l"]
+
+[node name="TileMapLayer" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAD//wAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAAAAP7/AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AAAAAAAAAAABAP7/AAAAAAAAAAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAA=")
+tile_set = ExtResource("1_jgdw2")
+
+[node name="DeleteMe" type="Area2D" parent="."]
+position = Vector2(0, -1005)
+collision_layer = 1024
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeleteMe"]
+position = Vector2(0, 71)
+scale = Vector2(8.93959, 8.93959)
+shape = SubResource("CircleShape2D_nol2l")

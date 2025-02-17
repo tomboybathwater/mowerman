@@ -83,10 +83,10 @@ position = Vector2(194, -0.00121723)
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasGroup"]
 offset_left = 88.0
 offset_top = 51.0
-offset_right = 428.0
-offset_bottom = 179.0
+offset_right = 383.0
+offset_bottom = 126.0
 rotation = 1.57079
-theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/normal_font_size = 50
 text = "SPEED:"
 
 [connection signal="timeout" from="TireSpinTimer" to="." method="_on_tire_spin_timer_timeout"]

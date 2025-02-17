@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://g18kh7f383cw"]
+
+[ext_resource type="Script" path="res://lawn/level/lawn_builder.gd" id="1_brywf"]
+[ext_resource type="PackedScene" uid="uid://c01xmx5l6oa2x" path="res://lawn/level/level_grass_patch.tscn" id="2_33kkl"]
+[ext_resource type="PackedScene" uid="uid://bkqskshagt3vf" path="res://lawn/level/area_2d_deleter.tscn" id="3_goc51"]
+
+[node name="LawnBuilder" type="Node2D"]
+script = ExtResource("1_brywf")
+grass_tile = ExtResource("2_33kkl")
+
+[node name="StarterTile" parent="." instance=ExtResource("2_33kkl")]
+
+[node name="Area2D_Deleter" parent="." instance=ExtResource("3_goc51")]
+collision_layer = 512
+collision_mask = 1024

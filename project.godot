@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MowerMan"
-run/main_scene="res://lawn/grass_grid.tscn"
+run/main_scene="res://scenes/primary_level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 window/size/viewport_width=320
 window/size/viewport_height=200
 window/size/mode=2
+window/size/initial_screen=1
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
@@ -68,6 +69,8 @@ move_down={
 2d_physics/layer_1="mower_body"
 2d_physics/layer_2="mower_blade"
 2d_physics/layer_3="rock"
+2d_physics/layer_10="Level_Eater"
+2d_physics/layer_11="Level_Food"
 
 [rendering]
 

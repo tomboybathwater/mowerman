@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyrx8stfp2gt6"]
+
+[ext_resource type="PackedScene" uid="uid://bwqy6oeo8j14w" path="res://mower/mower_cam.tscn" id="1_f3555"]
+[ext_resource type="PackedScene" uid="uid://g18kh7f383cw" path="res://lawn/level/lawn_builder.tscn" id="2_d1pfi"]
+
+[node name="PrimaryLevel" type="Node2D"]
+
+[node name="LawnBuilder" parent="." instance=ExtResource("2_d1pfi")]
+
+[node name="MowerCam" parent="." instance=ExtResource("1_f3555")]
+zoom = Vector2(0.25, 0.25)
+demo_speed = 200

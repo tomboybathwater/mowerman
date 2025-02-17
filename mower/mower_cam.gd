@@ -1,5 +1,8 @@
 extends Camera2D
 
+@export var demo_mode := true
+@export var demo_speed := 50
+
 var initial_x_position: float = 0
 var lawn_mower: Node = null
 var camera_hook: Node2D = null
@@ -9,21 +12,24 @@ var smoothing_speed: float = 5.0
 var target_position: Vector2
 
 func _ready():
-	# Store the Camera2D's initial X position
-	initial_x_position = global_position.x
+	if (demo_mode): 
+		pass
+	else:
+		# Store the Camera2D's initial X position
+		initial_x_position = global_position.x
 
-	# Set initial target position to current position
-	target_position = global_position
+		# Set initial target position to current position
+		target_position = global_position
 
-	# Find the LawnMower node
-	lawn_mower = get_node_or_null("../LawnMower")
+		# Find the LawnMower node
+		lawn_mower = get_node_or_null("../LawnMower")
 
-	if lawn_mower:
-		# Find the CameraHook node within the LawnMower
-		camera_hook = lawn_mower.get_node_or_null("CameraHook")
+		if lawn_mower:
+			# Find the CameraHook node within the LawnMower
+			camera_hook = lawn_mower.get_node_or_null("CameraHook")
 
-	if not camera_hook:
-		push_error("CameraHook not found under LawnMower")
+		if not camera_hook:
+			push_error("CameraHook not found under LawnMower")
 
 func _process(delta: float):
 	if camera_hook:
@@ -35,3 +41,7 @@ func _process(delta: float):
 
 		# Smoothly interpolate the camera's position towards the target position
 		global_position = global_position.lerp(target_position, smoothing_speed * delta)
+	else:
+		position.y -= demo_speed * delta
+
+			
