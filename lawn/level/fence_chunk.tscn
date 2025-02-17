@@ -7,7 +7,6 @@
 size = Vector2(122, 652)
 
 [node name="FenceChunk" type="Area2D"]
-y_sort_enabled = true
 position = Vector2(-1765, 199)
 collision_layer = 8
 script = ExtResource("1_jt0yh")
@@ -17,14 +16,15 @@ position = Vector2(-7, 0)
 shape = SubResource("RectangleShape2D_eukfa")
 
 [node name="Fence_Sprite_1" type="Sprite2D" parent="."]
-y_sort_enabled = true
+z_index = 1
 position = Vector2(0, 24)
 texture = ExtResource("1_hge5k")
 region_enabled = true
 region_rect = Rect2(0, 24, 137, 698)
 
 [node name="Fence_Sprite_2" type="Sprite2D" parent="."]
-y_sort_enabled = true
+z_index = 2
+position = Vector2(2, 4)
 rotation = -3.14159
 texture = ExtResource("1_hge5k")
 region_enabled = true

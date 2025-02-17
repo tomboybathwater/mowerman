@@ -1,25 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://g18kh7f383cw"]
+[gd_scene load_steps=6 format=3 uid="uid://g18kh7f383cw"]
 
 [ext_resource type="Script" path="res://lawn/level/lawn_builder.gd" id="1_brywf"]
 [ext_resource type="PackedScene" uid="uid://c01xmx5l6oa2x" path="res://lawn/level/level_grass_patch.tscn" id="2_33kkl"]
 [ext_resource type="PackedScene" uid="uid://bkqskshagt3vf" path="res://lawn/level/area_2d_deleter.tscn" id="3_goc51"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dn61g"]
-radius = 52.3927
+[ext_resource type="PackedScene" uid="uid://dhh3afxd5gc33" path="res://lawn/level/fence_patch.tscn" id="3_pv3e1"]
+[ext_resource type="PackedScene" uid="uid://css2fg5ln8prx" path="res://lawn/level/area_2d_spawner.tscn" id="5_l1nt2"]
 
 [node name="LawnBuilder" type="Node2D"]
 script = ExtResource("1_brywf")
 grass_tile = ExtResource("2_33kkl")
+fence_tile = ExtResource("3_pv3e1")
 
-[node name="StarterTile" parent="." instance=ExtResource("2_33kkl")]
+[node name="TileHolder" type="Node2D" parent="."]
+
+[node name="StarterTile" parent="TileHolder" instance=ExtResource("2_33kkl")]
+
+[node name="FenceHolder" type="Node2D" parent="."]
+
+[node name="StarterFence" parent="FenceHolder" instance=ExtResource("3_pv3e1")]
+y_sort_enabled = false
 
 [node name="Area2D_Deleter" parent="." instance=ExtResource("3_goc51")]
+visible = false
 collision_layer = 512
 collision_mask = 1024
 
-[node name="Area2D_Spawner" type="Area2D" parent="."]
-collision_layer = 256
-collision_mask = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Spawner"]
-shape = SubResource("CircleShape2D_dn61g")
+[node name="Area2D_Spawner" parent="." instance=ExtResource("5_l1nt2")]
+visible = false
+position = Vector2(0, 843)

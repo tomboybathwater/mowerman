@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyrx8stfp2gt6"]
+[gd_scene load_steps=5 format=3 uid="uid://dyrx8stfp2gt6"]
 
 [ext_resource type="PackedScene" uid="uid://bwqy6oeo8j14w" path="res://mower/mower_cam.tscn" id="1_f3555"]
 [ext_resource type="PackedScene" uid="uid://g18kh7f383cw" path="res://lawn/level/lawn_builder.tscn" id="2_d1pfi"]
+[ext_resource type="PackedScene" uid="uid://l53hncymhg61" path="res://shadowtool/shadow_master.tscn" id="3_b8cg6"]
+[ext_resource type="PackedScene" uid="uid://cxcfyw0w15sxq" path="res://mower/lawn_mower.tscn" id="4_nviah"]
 
 [node name="PrimaryLevel" type="Node2D"]
 position = Vector2(-345, 242)
@@ -10,5 +12,11 @@ position = Vector2(-345, 242)
 
 [node name="MowerCam" parent="." instance=ExtResource("1_f3555")]
 position = Vector2(77, 0)
-zoom = Vector2(0.25, 0.25)
+zoom = Vector2(0.3, 0.3)
+demo_mode = false
 demo_speed = 200
+
+[node name="ShadowMaster" parent="." instance=ExtResource("3_b8cg6")]
+
+[node name="LawnMower" parent="." instance=ExtResource("4_nviah")]
+position = Vector2(81, 228)

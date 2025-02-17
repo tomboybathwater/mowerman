@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=4 uid="uid://c01xmx5l6oa2x"]
+[gd_scene load_steps=3 format=4 uid="uid://c01xmx5l6oa2x"]
 
 [ext_resource type="TileSet" uid="uid://bwqie3rrh6tx1" path="res://lawn/level/grass_grid_tileset.tres" id="1_jgdw2"]
-[ext_resource type="PackedScene" uid="uid://dh16rarv15dc7" path="res://lawn/level/fence_chunk.tscn" id="2_vq3s8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nol2l"]
 
@@ -10,6 +9,7 @@ tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAD//wAAAAAAAAAAAAAAAP//AAAAAAA
 tile_set = ExtResource("1_jgdw2")
 
 [node name="DeleteMe" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -1005)
 collision_layer = 1024
 collision_mask = 512
@@ -19,29 +19,13 @@ position = Vector2(0, 71)
 scale = Vector2(8.93959, 8.93959)
 shape = SubResource("CircleShape2D_nol2l")
 
-[node name="FenceChunk2" parent="." instance=ExtResource("2_vq3s8")]
-position = Vector2(-490, 21)
-scale = Vector2(1.06, 1.06)
+[node name="ReplaceMe" type="Area2D" parent="."]
+visible = false
+position = Vector2(0, 498)
+collision_layer = 256
+collision_mask = 128
 
-[node name="FenceChunk" parent="." instance=ExtResource("2_vq3s8")]
-position = Vector2(-491, -662)
-scale = Vector2(1.06, 1.06)
-
-[node name="FenceChunk3" parent="." instance=ExtResource("2_vq3s8")]
-position = Vector2(-489, 704)
-scale = Vector2(1.06, 1.06)
-
-[node name="FenceChunk4" parent="." instance=ExtResource("2_vq3s8")]
-position = Vector2(644, 2.99994)
-rotation = -3.14159
-scale = Vector2(1.06, 1.06)
-
-[node name="FenceChunk5" parent="." instance=ExtResource("2_vq3s8")]
-position = Vector2(643, -680)
-rotation = -3.14159
-scale = Vector2(1.06, 1.06)
-
-[node name="FenceChunk6" parent="." instance=ExtResource("2_vq3s8")]
-position = Vector2(645, 686)
-rotation = -3.14159
-scale = Vector2(1.06, 1.06)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReplaceMe"]
+position = Vector2(0, 71)
+scale = Vector2(8.93959, 8.93959)
+shape = SubResource("CircleShape2D_nol2l")

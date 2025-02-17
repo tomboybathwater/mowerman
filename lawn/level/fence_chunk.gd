@@ -6,7 +6,7 @@ extends Area2D
 func _ready() -> void:
 	var random_int = randi_range(1,2)
 	
-	if (random_int % 2):
+	if (random_int == 2):
 		fence_sprite_1.visible = false
 	else:
 		fence_sprite_2.visible = false
